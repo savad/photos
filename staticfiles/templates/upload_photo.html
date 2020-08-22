@@ -1,0 +1,33 @@
+<div class="container-fluid admin-title-area" ng-init="loadDraftImage('draft=true')">
+    <div class="container">
+        <h2>Upload Photo</h2>
+    </div>
+</div>
+<div class="container formcontainer">
+    <form id="image_form" method="post">
+        <input type="hidden" id="draft">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="red"><span ng-repeat="error in image_error.non_field_errors">[[error]]</span></div>
+                <textarea ng-model="caption" id="caption" class="form-control" placeholder="Caption" rows="4"></textarea>
+                <div class="red"><span ng-repeat="error in image_error.caption">[[error]]</span></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <input style="height:0px;overflow:hidden" type="file" id="image-upload" fileread="itemToAdd" accept="image/*"/>
+                <div>
+                    <a id="#img-btn" onclick="$('#image-upload').click();"><i class="fa fa-picture-o" aria-hidden="true">&nbsp;&nbsp;Choose Image</i></a>
+                    &nbsp;&nbsp;<img width="45px" height="35px" id="thumb-img" style="display:none" src="" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-5">
+                <button id="form_submit" type="button" class="btn btn-primary" ng-click="imageSubmit(itemToAdd, 'draft=false')">Publish</button>
+                <button id="form_draft" type="submit" class="btn btn-primary" ng-click="imageSubmit(itemToAdd, 'draft=true')">Save to draft</button>
+                <button onclick="history.go(-1)" class="btn btn-default" type="reset">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

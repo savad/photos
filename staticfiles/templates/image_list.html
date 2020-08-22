@@ -1,0 +1,51 @@
+<div class="container-fluid admin-title-area" ng-init="imageList()">
+    <div class="container" ng-if="token">
+        <h2 >Image Feed</h2>
+    </div>
+</div>
+<div class="container formcontainer" ng-init="getTagList()">
+    <div class="row about">
+        <div style="float: right;" ng-init="userList()">
+            Order by: <select class="selectpicker" ng-options="order as order.name for order in orderBy" ng-change="orderChange()" ng-model="order">
+            </select>&nbsp;&nbsp;
+            Filter User: <select class="selectpicker" ng-change="onUserFilter()" ng-model="userFilter">
+              <option value="" >All</option>
+              <option value="[[user.id]]" ng-repeat="user in userList">[[user.user_full_name]]</option>
+            </select>
+
+        </div>
+    </div>
+
+    <div class="row about content" id="content" ng-if="imageList.length>0">
+        <div class="col-lg-11" >
+            <div class="col-sm-4" style="margin-bottom: 25px;" ng-repeat="image in imageList">
+                <div class="about1">
+                 <img style="width:320px; height:170px" ng-src="[[image.image_url]]" alt="">
+                <h3>[[image.caption]]</h3>
+                    <p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;[[image.user_full_name]]&nbsp;&nbsp;
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;[[image.created | date : 'medium']] </p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1" >
+            <h4>Trending</h4>
+            <div class="col-md-12" style="margin-bottom: 5px;" ng-repeat="tag in tagList">
+                <div class="about1" >
+                    <a ng-click="filterHashTag(tag)">#[[tag]]</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    h3{margin-top: 20px !important;}
+    .highlighted {
+        background: yellow;
+    }
+</style>
+
+<script>
+    $('body').removeClass('loginarea');
+    $('.navbar-default').attr('style', 'display: block;');
+    $('#myNavbar').attr('style', 'display: block !important;');
+</script>

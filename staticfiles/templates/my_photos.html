@@ -1,0 +1,28 @@
+<div class="container-fluid admin-title-area" ng-init="imageList('user=self')">
+    <div class="container" ng-if="token">
+        <h2>My Photos</h2>
+    </div>
+</div>
+<div class="container formcontainer">
+
+    <div class="row about">
+        <div class="col-md-4" style="margin-bottom: 25px;" id="[[image.id]]" ng-repeat="image in imageList">
+            <div class="about1">
+             <img style="width:320px; height:170px" ng-src="[[image.image_url]]" alt="image">
+            <h3>[[image.caption]]</h3>
+                <p><i class="fa fa-user" aria-hidden="true"></i>&nbsp;[[image.user_full_name]]&nbsp;&nbsp;
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;[[image.created | date : 'medium']]&nbsp;&nbsp;
+                    <a style="color: red" ng-click="imageDelete([[image.id]])"><i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;Remove</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    h3{margin-top: 20px !important;}
+</style>
+
+<script>
+    $('body').removeClass('loginarea');
+    $('.navbar-default').attr('style', 'display: block;');
+    $('#myNavbar').attr('style', 'display: block !important;');
+</script>

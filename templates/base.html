@@ -1,0 +1,41 @@
+<!doctype html>
+<html ng-app="apvera">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock title %} | Photos</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/images/favicon.png">
+    {% include 'css.html' %}
+    <script src="/static/js/sweetalert.min.js"></script>
+
+</head>
+<body ng-controller="ApveraController" ng-cloak>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"><span
+                class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/#/"><img width="46px" height="35px" src="/static/images/favicon.png" alt="logo"/>
+                <div class="logotext"><span class="c"> Pho</span><span class="b">tos</span></div>
+            </a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/#/"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
+                <li><a href="/#/my-photos/"><i class="fa fa-picture-o" aria-hidden="true"></i> My Photos</a></li>
+                <li><a href="/#/upload-photo/"><i class="fa fa-key" aria-hidden="true"></i> Upload Photo</a></li>
+                <li><a href="/#/change-password/"><i class="fa fa-key" aria-hidden="true"></i> Change Password</a></li>
+                <li><a ng-click="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a></li>
+            </ul>
+        </div>
+        
+    </div>
+</nav>
+
+{% block content %}{% endblock content %}
+
+{% include 'js.html' %}
+</body>
+</html>

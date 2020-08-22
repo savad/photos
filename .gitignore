@@ -1,0 +1,25 @@
+photos/local.py
+photos/production.py
+
+# python byte code files
+*.pyc
+
+# Macosx files
+.[dD][sS]_[Ss]tore
+
+# Git hooks
+hooks/*
+
+# scss files
+*.idea*
+*.sass-cache*
+
+# environment variable
+env.sh
+
+# Media files
+media/*
+
+# Environment files
+.env
+venv/
